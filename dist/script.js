@@ -1,8 +1,9 @@
-import { Pessoa } from "./pessoa.js";
-var pessoa = new Pessoa();
-pessoa.cpf = "123456789";
-pessoa.nome = "Nathália Sardou Pereira";
-pessoa.telefone = "22000-0000";
-console.log(pessoa.cpf);
-console.log(pessoa.nome);
-console.log(pessoa.telefone);
+import { Endereco } from "./endereco.js";
+import { Cliente } from "./cliente.js";
+// console.log(pessoa1.telefone);
+var endereco1 = new Endereco("00000-000", "Rua A", "123", "", "Cidade A", "UF");
+//  console.log(endereco1);
+var cliente1 = new Cliente("123456789", "Nathália Sardou Pereira", "22000-0000");
+cliente1.vip = true; // Configura o atributo vip como true
+cliente1.adicionarEndereco(endereco1);
+console.log(cliente1);
