@@ -4,6 +4,9 @@ var Pessoa = /** @class */ (function () {
         this.nome = nome;
         this.telefone = telefone;
     }
+    Pessoa.prototype.autenticar = function () {
+        return true;
+    };
     return Pessoa;
 }());
 export { Pessoa };

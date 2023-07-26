@@ -1,5 +1,5 @@
-class Debito {
-  valor: number;
+ class Debito {
+  protected valor: number;
   data: string;
 
   constructor(valor: number, data: string) {
@@ -9,7 +9,7 @@ class Debito {
 }
 
 class Credito {
-  valor: number;
+  protected valor: number;
   data: string;
 
   constructor(valor: number, data: string) {
@@ -18,9 +18,9 @@ class Credito {
   }
 }
 
-export class Conta {
-  numero: string;
-  saldo: number;
+export abstract class Conta {
+ protected numero: string;
+ protected saldo: number;
   debitos: Debito[];
   creditos: Credito[];
 
@@ -44,7 +44,7 @@ export class Conta {
       this.saldo -= valor;
       return true;
     } else {
-      return false; // Não há saldo suficiente para sacar o valor desejado
+      console.log("saldo insuficiente para saque");
     }
   }
 }
@@ -65,7 +65,8 @@ export class ContaCorrente extends Conta {
         return true;
       }
     }
-    return false; // Transferência não realizada
+    else
+    console.log("Transferência não realizada, Saldo insuficiente");
   }
 
   calcularSaldo(): number {

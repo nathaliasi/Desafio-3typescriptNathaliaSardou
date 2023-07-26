@@ -47,7 +47,7 @@ var Conta = /** @class */ (function () {
             return true;
         }
         else {
-            return false; // Não há saldo suficiente para sacar o valor desejado
+            return false; //saldo insuficiente para saque
         }
     };
     return Conta;
@@ -68,7 +68,9 @@ var ContaCorrente = /** @class */ (function (_super) {
                 return true;
             }
         }
-        return false; // Transferência não realizada
+        else
+            console.log("Transferência não realizada, Saldo insuficiente");
+        // Transferência não realizada
     };
     ContaCorrente.prototype.calcularSaldo = function () {
         return this.saldo + this.limite;

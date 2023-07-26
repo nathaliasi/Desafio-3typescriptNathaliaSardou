@@ -1,6 +1,5 @@
 import { Pessoa } from "./pessoa.js";
-import { Endereco } from "./endereco.js";
-import { Conta, ContaCorrente, ContaPoupanca } from "./conta.js";
+import { ContaCorrente, ContaPoupanca } from "./conta.js";
 
 export class Cliente extends Pessoa {
   vip: boolean = false;
@@ -27,9 +26,25 @@ export class Cliente extends Pessoa {
       return this.contaCorrente.calcularSaldo();
     } else if (this.contaPoupanca) {
       return this.contaPoupanca.calcularSaldo();
-    } else {
-      return undefined; // Cliente não possui nenhuma conta associada
+    } else { 
+      console.log("Cliente não possui conta");
     }
   }
 }
+export class Endereco {
+  cep!: string;
+  logradouro!: string;
+  numero!: string;
+  complemento!: string;
+  cidade!: string;
+  uf!: string;
 
+  constructor(cep: string, logradouro: string, numero: string, complemento: string, cidade: string, uf: string) {
+    this.cep = cep;
+    this.logradouro = logradouro;
+    this.numero = numero;
+    this.complemento = complemento;
+    this.cidade = cidade;
+    this.uf = uf;
+  }
+}
