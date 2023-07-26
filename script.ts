@@ -1,7 +1,7 @@
 import { Endereco } from "./endereco.js"; 
 import { Cliente } from "./cliente.js";
 import { Funcionario, Cargo } from "./funcionario.js";
-import { ContaCorrente, ContaPoupanca } from "./conta.js";
+import {Conta, ContaCorrente, ContaPoupanca } from "./conta.js";
 
 
 // console.log(pessoa1.telefone);
@@ -24,6 +24,20 @@ cliente1.adicionarEndereco(endereco1);
 cliente1.adicionarEndereco(endereco2);
 cliente1.adicionarEndereco(endereco3);
 console.log(cliente1);
+
+let clienteContaCorrente1 = new Cliente("123456789", "Cliente Conta Corrente", "228877-0000");
+clienteContaCorrente1.vip = true;
+let contaCorrenteCliente1 = new ContaCorrente("11111", 0);
+clienteContaCorrente1.contaCorrente = contaCorrenteCliente1;
+contaCorrenteCliente1.depositar(100, "2023-07-24");
+contaCorrenteCliente1.depositar(100, "2023-07-25");
+contaCorrenteCliente1.depositar(100, "2023-07-26");
+contaCorrenteCliente1.sacar(50, "2023-07-27");
+console.log(clienteContaCorrente1);
+console.log("Saldo da conta corrente:", clienteContaCorrente1.calcularSaldo());
+
+
+
 
 
 

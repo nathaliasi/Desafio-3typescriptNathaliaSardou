@@ -29,6 +29,17 @@ var Cliente = /** @class */ (function (_super) {
     Cliente.prototype.listarEnderecos = function () {
         return this.enderecos;
     };
+    Cliente.prototype.calcularSaldo = function () {
+        if (this.contaCorrente) {
+            return this.contaCorrente.calcularSaldo();
+        }
+        else if (this.contaPoupanca) {
+            return this.contaPoupanca.calcularSaldo();
+        }
+        else {
+            return undefined; // Cliente não possui nenhuma conta associada
+        }
+    };
     return Cliente;
 }(Pessoa));
 export { Cliente };

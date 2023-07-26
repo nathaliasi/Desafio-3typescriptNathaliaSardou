@@ -1,9 +1,12 @@
 import { Pessoa } from "./pessoa.js";
 import { Endereco } from "./endereco.js";
+import { Conta, ContaCorrente, ContaPoupanca } from "./conta.js";
 
 export class Cliente extends Pessoa {
   vip: boolean = false;
   enderecos!: Endereco[];
+  contaCorrente?:ContaCorrente;
+  contaPoupanca?:ContaPoupanca;
 
   constructor(cpf: string, nome: string, telefone: string) {
     super(cpf, nome, telefone);
@@ -19,12 +22,14 @@ export class Cliente extends Pessoa {
     return this.enderecos;
   }
 
-  // public get _vip(): boolean{
-  //   return this.vip;
-  // }
-
-  // public set _vip(value:boolean){
-  //   this.vip = value;
-  // }
+  calcularSaldo(): number | undefined {
+    if (this.contaCorrente) {
+      return this.contaCorrente.calcularSaldo();
+    } else if (this.contaPoupanca) {
+      return this.contaPoupanca.calcularSaldo();
+    } else {
+      return undefined; // Cliente não possui nenhuma conta associada
+    }
+  }
 }
 
